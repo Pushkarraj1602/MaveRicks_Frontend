@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #183D35;
+  --color-deep-green: #12332D;
+  --color-sage: #6F927D;
+  --color-sage-light: #E5F0E8;
+  --color-mint: #F0F7F2;
+  --color-ivory: #F7F5EF;
+  --color-amber: #D88935;
+  --color-amber-light: #FFF1DF;
+  --color-low-risk: #24734A;
+  --color-low-risk-bg: #E3F4E8;
+  --color-medium-risk: #B97920;
+  --color-medium-risk-bg: #FFF3D9;
+  --color-high-risk: #B64035;
+  --color-high-risk-bg: #FBE8E5;
+  --color-text-primary: #142A27;
+  --color-text-secondary: #526560;
+  --color-text-muted: #84918D;
+  --color-border: #DDE4DF;
+
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-script: "Caveat", cursive;
+
+  --radius-card: 24px;
+  --radius-input: 12px;
+
+  --shadow-card: 0 10px 30px rgba(24, 61, 53, 0.06);
+  --shadow-card-hover: 0 16px 40px rgba(24, 61, 53, 0.10);
+}
+
+/* ===== LIGHT MODE (default) ===== */
+:root {
+  --bg-page: #F7F5EF;
+  --bg-card: #FFFFFF;
+  --bg-input: #FCFCF9;
+  --bg-sidebar: #183D35;
+  --text-heading: #142A27;
+  --text-body: #526560;
+  --text-muted: #84918D;
+  --border-main: #DDE4DF;
+  --overlay-hero: #F7F5EFcc;
+  --quote-bg: rgba(247, 245, 239, 0.95);
+}
+
+/* ===== DARK MODE ===== */
+.dark {
+  --bg-page: #0F1A17;
+  --bg-card: #162420;
+  --bg-input: #1A2D27;
+  --bg-sidebar: #0A1612;
+  --text-heading: #E8EDE9;
+  --text-body: #A3B5AD;
+  --text-muted: #6B8078;
+  --border-main: #2A3F37;
+  --overlay-hero: #0F1A17cc;
+  --quote-bg: rgba(22, 36, 32, 0.95);
+
+  --color-ivory: #0F1A17;
+  --color-text-primary: #E8EDE9;
+  --color-text-secondary: #A3B5AD;
+  --color-text-muted: #6B8078;
+  --color-border: #2A3F37;
+  --color-sage-light: #1A2D27;
+  --color-mint: #162420;
+  --color-amber-light: #2A2318;
+  --color-low-risk-bg: #132A1E;
+  --color-high-risk-bg: #2A1815;
+  --color-medium-risk-bg: #2A2215;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-page);
+  color: var(--text-heading);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@layer components {
+  .input {
+    height: 48px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-main);
+    border-radius: var(--radius-input);
+    padding: 0 14px;
+    color: var(--text-heading);
+    font-family: var(--font-sans);
+    width: 100%;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: var(--color-sage);
+    box-shadow: 0 0 0 3px rgba(111, 146, 125, 0.15);
+  }
+
+  .predict-btn {
+    background: var(--color-forest);
+    color: white;
+    height: 52px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.25s ease;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .predict-btn:hover:not(:disabled) {
+    background: var(--color-deep-green);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(24, 61, 53, 0.18);
+  }
+
+  .predict-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Card base for dark mode */
+  .card-surface {
+    background: var(--bg-card);
+    border-color: var(--border-main);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+}
