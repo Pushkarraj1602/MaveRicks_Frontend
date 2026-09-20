@@ -29,14 +29,4 @@ export default defineConfig({
         // Force re-bundle on startup so cache in temp dir is always fresh
         force: false,
     },
-    build: {
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    vendor: ['react', 'react-dom', 'react-router-dom'],
-                    icons: ['lucide-react'],
-                },
-            },
-        },
-    },
 })
