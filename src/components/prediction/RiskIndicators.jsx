@@ -55,7 +55,7 @@ export const RiskBadge = ({ isHighRisk }) => {
   );
 };
 
-export const SimilarCaseCard = ({ rate }) => {
+export const SimilarCaseCard = ({ rate, ragEnabled = true }) => {
   const percentage = Math.round(rate * 100);
 
   return (
@@ -72,7 +72,9 @@ export const SimilarCaseCard = ({ rate }) => {
         <span className="text-sm text-[var(--color-text-muted)] mt-1">({rate.toFixed(1)})</span>
       </div>
 
-      <p className="text-xs text-center text-[var(--color-text-muted)] mt-4">Among 10 similar patients</p>
+      {ragEnabled && (
+        <p className="text-xs text-center text-[var(--color-text-muted)] mt-4">Among 10 similar patients</p>
+      )}
     </div>
   );
 };

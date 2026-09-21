@@ -103,7 +103,7 @@ const PredictionResults = ({ data, patientName }) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <RiskScore probability={data.risk_probability} />
         <RiskBadge isHighRisk={data.is_high_risk} />
-        <SimilarCaseCard rate={data.similar_case_readmit_rate} />
+        <SimilarCaseCard rate={data.similar_case_readmit_rate} ragEnabled={data.rag_enabled} />
       </div>
 
       {/* Model Performance Info */}

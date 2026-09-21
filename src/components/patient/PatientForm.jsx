@@ -75,7 +75,7 @@ const PatientForm = ({ onSubmit, loading }) => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <FormField label="Age" icon={User}>
-              <SelectInput value={form.age} onChange={(v) => update("age")(Number(v))} options={AGE_OPTIONS} />
+              <NumberInput value={form.age} onChange={update("age")} min={1} max={120} />
             </FormField>
             
             <FormField label="Gender" icon={User}>
